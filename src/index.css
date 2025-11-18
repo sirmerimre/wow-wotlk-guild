@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* helpful extra to improve readability over background */
+body {
+    /* fallback color if background image fails */
+    background-color: #071025;
+}@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* helpful extra to improve readability over background */
+body {
+    /* fallback color if background image fails */
+    background-color: #071025;
+}
