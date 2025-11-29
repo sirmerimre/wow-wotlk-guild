@@ -1,14 +1,11 @@
-// wow-wotlk-guild-page.jsx
-// React component with English/Hungarian language switch.
-// Tailwind expected at runtime.
-
 import React, { useState } from "react";
 import LogoImage from '../assets/klikk-logo.png';
 
 const translations = {
     hu: {
         news: "Hírek",
-        roster: "Játékoslista",
+        information: "Információ",
+        roster: "Officerek",
         apply: "Jelentkezés / Toborzás",
         applyText: "Raidre és laza játékra is toborzunk. Kérjük, linkelj logokat és rövid tapasztalatot.",
         applyHere: "Jelentkezz itt",
@@ -23,22 +20,25 @@ const translations = {
 
 const sampleGuild = {
     name: "Klikk",
-    Server: "Warmane (https://www.warmane.com/)",
+    server: "Warmane",
     realm: "Icecrown (PVP)",
     faction: "Alliance",
-    progress: "10/12 ICC - 25H",
+    progress: "11/12 ICC - 10N",
     motto: "Szilárdan állunk ott, ahol mások elesnek.",
     roster: [
-        { name: "Smicerwari", cls: "Warrior", role: "DPS", ilvl: 224, gs: 4785 },
-        // { name: "Bromm", cls: "Warrior", role: "DPS", ilvl: 999 },
-        // { name: "Ceress", cls: "Priest", role: "Healer", ilvl: 999 },
+        { name: "Hangya", karakter: "Fylea", rang: "GM"},
+        { name: "TheDanics", karakter: "Thewinner", rang: "Officer"},
+        { name: "<DS>", karakter: "Mylittleds", rang: "Officer"},
     ],
     events: [
-        { date: "TBC", time: "TBC", zone: "UTC", note: "Raid: ICC 10" },
+        { date: "2025-11-27", time: "17:30", zone: "UTC", note: "Raid: ICC 10" },
         // { date: "Sun Nov 23, 2025", time: "19:00", zone: "UTC", note: "Guild PvP Night" },
     ],
     news: [
         { id: 1, title: "Üdvőzőljük az új tagokat", excerpt: "Üdv minden új tagnak és jó játékot." },
+    ],
+    information: [
+        { id: 1, title: "Jelentkezni rangokért Discordon lehet - Gyors linkeknél találod a DC linket", excerpt: "Kérünk mindnkit olvasse el a Guild szabályzatot es lehetősége szerint tisztelje." },
     ],
 };
 
@@ -55,7 +55,7 @@ export default function GuildPage({ guild = sampleGuild }) {
                     </div>
                     <div className="flex-1">
                         <h1 className="text-3xl md:text-4xl font-bold">{guild.name}</h1>
-                        <p className="text-sm opacity-80">{guild.server}</p>
+                        <p className="text-sm opacity-80" style={{textDecoration: 'underline', cursor: 'pointer'}}><a href={'https://www.warmane.com/'} target={'_blank'}>{guild.server}</a></p>
                         <p className="text-sm opacity-80">{guild.realm} • {guild.faction} • {guild.progress}</p>
                         <p className="mt-2 italic text-slate-300">“{guild.motto}”</p>
                     </div>
@@ -81,13 +81,26 @@ export default function GuildPage({ guild = sampleGuild }) {
                         </div>
 
                         <div className="bg-slate-800/60 rounded-xl p-4">
+                            <h2 className="font-semibold text-xl">{t.information}</h2>
+                            <ul className="mt-3 space-y-3">
+                                {guild.information.map(n => (
+                                    <li key={n.id} className="p-3 bg-slate-900/40 rounded-md">
+                                        <strong>{n.title}</strong>
+                                        <div className="text-sm opacity-80">{n.excerpt}</div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="bg-slate-800/60 rounded-xl p-4">
                             <h2 className="font-semibold text-xl">{t.roster}</h2>
                             <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {guild.roster.map(m => (
                                     <div key={m.name} className="p-3 bg-slate-900/40 rounded-md flex items-center justify-between">
                                         <div>
-                                            <div className="font-medium">{m.name} <span className="text-sm opacity-70">• {m.cls}</span></div>
-                                            <div className="text-xs opacity-70">{m.role} • ilvl {m.ilvl} • GS {m.gs} </div>
+                                            <div className="font-medium">DC név - {m.name}</div>
+                                            <div className="font-medium">Rang - {m.rang}</div>
+                                            <div className="font-medium">Karakter - {m.karakter}</div>
                                         </div>
                                         <div className="text-sm font-semibold">{m.role === 'Healer' ? '💚' : m.role === 'Tank' ? '🛡️' : '⚔️'}</div>
                                     </div>
@@ -116,15 +129,14 @@ export default function GuildPage({ guild = sampleGuild }) {
                             <ul className="mt-3 space-y-2 text-sm">
                                 <li><a href="https://discord.gg/JDPXapVMrv" target={'_blank'} className="underline">Discord</a></li>
                                 <li><a href="https://discord.com/channels/1438064852160479336/1439443065726177351" target={'_blank'} className="underline">{t.rules}</a></li>
-                                <li><a href="#logs" className="underline">{t.logs}</a></li>
                             </ul>
                         </div>
 
-                        <div className="bg-slate-800/60 rounded-xl p-4 text-center">
-                            <h3 className="font-semibold">{t.strength}</h3>
-                            <div className="mt-3 text-3xl font-bold">{guild.roster.length * 10}%</div>
-                            <div className="text-sm opacity-80">{t.engagement}</div>
-                        </div>
+                        {/*<div className="bg-slate-800/60 rounded-xl p-4 text-center">*/}
+                        {/*    <h3 className="font-semibold">{t.strength}</h3>*/}
+                        {/*    <div className="mt-3 text-3xl font-bold">{guild.roster.length * 10}%</div>*/}
+                        {/*    <div className="text-sm opacity-80">{t.engagement}</div>*/}
+                        {/*</div>*/}
                     </aside>
                 </main>
 
