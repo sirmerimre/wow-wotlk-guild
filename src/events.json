@@ -1,0 +1,51 @@
+[
+  {
+    "day": "Hétfő",
+    "title": "ICC 10 Normal",
+    "date": "2025-12-20",
+    "time": "19:30",
+    "description": "Main raid"
+  },
+  {
+    "day": "Kedd",
+    "title": "ICC 10 Normal",
+    "date": "2025-12-20",
+    "time": "19:30",
+    "description": "Main raid"
+  },
+  {
+    "day": "Szerda",
+    "title": "ICC 10 Normal",
+    "date": "2025-12-20",
+    "time": "19:30",
+    "description": "Main raid"
+  },
+  {
+    "day": "Csütörtök",
+    "title": "ICC 10 Normal",
+    "date": "2025-12-20",
+    "time": "19:30",
+    "description": "Main raid"
+  },
+  {
+    "day": "Péntek",
+    "title": "ICC 10 Normal",
+    "date": "2025-12-20",
+    "time": "19:30",
+    "description": "Main raid"
+  },
+  {
+    "day": "Szombat",
+    "title": "ICC 10 alt + ICC 25 alt",
+    "date": "2025-12-20",
+    "time": "16:00",
+    "description": "Main + Alt raid"
+  },
+  {
+    "day": "Vasárnap",
+    "title": "ICC 10 Normal",
+    "date": "2025-12-20",
+    "time": "19:30",
+    "description": "Main raid"
+  }
+]

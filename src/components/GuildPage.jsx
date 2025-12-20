@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LogoImage from '../assets/klikk-logo.png';
+import events from "../events.json";
 
 const translations = {
     hu: {
@@ -28,12 +29,11 @@ const sampleGuild = {
     roster: [
         { name: "Hangya", karakter: "Fylea", rang: "GM"},
         { name: "TheDanics", karakter: "Thewinner", rang: "Officer"},
+        { name: "Smicer", karakter: "Smicerlock", rang: "Officer, Engineer"},
+        { name: "Tammiah", karakter: "Tammiah", rang: "Raid Leader"},
         { name: "<DS>", karakter: "Mylittleds", rang: "Officer"},
     ],
-    events: [
-        { date: "2025-11-27", time: "17:30", zone: "UTC", note: "Raid: ICC 10" },
-        // { date: "Sun Nov 23, 2025", time: "19:00", zone: "UTC", note: "Guild PvP Night" },
-    ],
+    events: events,
     news: [
         { id: 1, title: "Üdvőzőljük az új tagokat", excerpt: "Üdv minden új tagnak és jó játékot." },
     ],
@@ -98,9 +98,9 @@ export default function GuildPage({ guild = sampleGuild }) {
                                 {guild.roster.map(m => (
                                     <div key={m.name} className="p-3 bg-slate-900/40 rounded-md flex items-center justify-between">
                                         <div>
-                                            <div className="font-medium">DC név - {m.name}</div>
-                                            <div className="font-medium">Rang - {m.rang}</div>
-                                            <div className="font-medium">Karakter - {m.karakter}</div>
+                                            <div className="font-medium" style={{fontSize: '20px', fontWeight: 'bold', color: '#2c9cd3'}}>DC név - {m.name}</div>
+                                            <div className="font-medium">Rang - <span style={{backgroundColor: 'black', color: '#ffffff', padding: '5px', borderRadius: '10px'}}>{m.rang}</span></div>
+                                            <div className="font-medium" style={{fontSize: '18px', color: '#4caa03'}}>Karakter - {m.karakter}</div>
                                         </div>
                                         <div className="text-sm font-semibold">{m.role === 'Healer' ? '💚' : m.role === 'Tank' ? '🛡️' : '⚔️'}</div>
                                     </div>
@@ -119,7 +119,14 @@ export default function GuildPage({ guild = sampleGuild }) {
                             <h3 className="font-semibold">{t.events}</h3>
                             <ul className="mt-3 space-y-2 text-sm opacity-90">
                                 {guild.events.map((e,i) => (
-                                    <li key={i} className="p-2 rounded-md bg-slate-900/30">{e.date} — {e.time} {e.zone} <div className="opacity-80">{e.note}</div></li>
+                                    <>
+                                        <li key={i} className="p-2 rounded-md bg-slate-900/30">
+                                            <div style={{fontSize: '20px', fontWeight: 'bold', color: '#2c9cd3'}}>{e.day}</div>
+                                            <div style={{ textDecoration: 'underline' }}>{e.title} — {e.description} {e.zone}</div>
+                                            <div className="opacity-80">{e.date} — {e.time}
+                                            </div>
+                                        </li>
+                                    </>
                                 ))}
                             </ul>
                         </div>
@@ -131,12 +138,6 @@ export default function GuildPage({ guild = sampleGuild }) {
                                 <li><a href="https://discord.com/channels/1438064852160479336/1439443065726177351" target={'_blank'} className="underline">{t.rules}</a></li>
                             </ul>
                         </div>
-
-                        {/*<div className="bg-slate-800/60 rounded-xl p-4 text-center">*/}
-                        {/*    <h3 className="font-semibold">{t.strength}</h3>*/}
-                        {/*    <div className="mt-3 text-3xl font-bold">{guild.roster.length * 10}%</div>*/}
-                        {/*    <div className="text-sm opacity-80">{t.engagement}</div>*/}
-                        {/*</div>*/}
                     </aside>
                 </main>
 
