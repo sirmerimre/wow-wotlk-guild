@@ -1,51 +1,51 @@
 [
   {
     "day": "Hétfő",
-    "title": "ICC 10 Normal",
-    "date": "2025-12-20",
-    "time": "19:30",
+    "title": "Ruby Sanctum 10 Normal",
+    "date": "2025-12-22",
+    "time": "19:00",
     "description": "Main raid"
   },
   {
     "day": "Kedd",
-    "title": "ICC 10 Normal",
-    "date": "2025-12-20",
-    "time": "19:30",
+    "title": "Ruby Sanctum 25 Normal",
+    "date": "2025-12-23",
+    "time": "18:30",
     "description": "Main raid"
   },
   {
     "day": "Szerda",
     "title": "ICC 10 Normal",
-    "date": "2025-12-20",
-    "time": "19:30",
-    "description": "Main raid"
+    "date": "2025-12-24",
+    "time": "18:30",
+    "description": "Altos raid"
   },
   {
     "day": "Csütörtök",
-    "title": "ICC 10 Normal",
-    "date": "2025-12-20",
-    "time": "19:30",
-    "description": "Main raid"
+    "title": "TBC",
+    "date": "TBC",
+    "time": "TBC",
+    "description": "TBC"
   },
   {
     "day": "Péntek",
-    "title": "ICC 10 Normal",
-    "date": "2025-12-20",
-    "time": "19:30",
-    "description": "Main raid"
+    "title": "TBC",
+    "date": "TBC",
+    "time": "TBC",
+    "description": "TBC"
   },
   {
     "day": "Szombat",
-    "title": "ICC 10 alt + ICC 25 alt",
-    "date": "2025-12-20",
-    "time": "16:00",
-    "description": "Main + Alt raid"
+    "title": "TBC",
+    "date": "TBC",
+    "time": "TBC",
+    "description": "TBC"
   },
   {
     "day": "Vasárnap",
-    "title": "ICC 10 Normal",
-    "date": "2025-12-20",
-    "time": "19:30",
+    "title": "Ruby Sanctum 25 Normal + ICC 25 Normal",
+    "date": "2025-12-28",
+    "time": "19:00",
     "description": "Main raid"
   }
 ]
